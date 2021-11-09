@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/movie_fragment">
+
+    <fragment
+        android:id="@+id/movie_fragment"
+        android:name="oleg_pronin.movielife.ui.pages.movie.MovieFragment"
+        android:label="@string/movie"
+        tools:layout="@layout/fragment_movie" />
+
+    <fragment
+        android:id="@+id/soon_fragment"
+        android:name="oleg_pronin.movielife.ui.pages.soon.SoonFragment"
+        android:label="@string/soon"
+        tools:layout="@layout/fragment_soon" />
+
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="oleg_pronin.movielife.ui.pages.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
