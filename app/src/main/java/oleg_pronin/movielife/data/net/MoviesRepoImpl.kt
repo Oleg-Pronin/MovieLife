@@ -1,6 +1,7 @@
-package oleg_pronin.movielife.domain.repository
+package oleg_pronin.movielife.data.net
 
 import oleg_pronin.movielife.domain.entity.Movie
+import oleg_pronin.movielife.domain.repository.MoviesRepo
 
 class MoviesRepoImpl : MoviesRepo {
     override fun getLatestMovies(): List<Movie> {

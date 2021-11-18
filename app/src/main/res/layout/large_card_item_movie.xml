@@ -17,7 +17,7 @@
         app:cardCornerRadius="16dp">
 
         <ImageView
-            android:id="@+id/imgMovie"
+            android:id="@+id/image_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
@@ -33,7 +33,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/nameMovie"
+            android:id="@+id/name_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
@@ -42,7 +42,7 @@
             tools:text="Название" />
 
         <TextView
-            android:id="@+id/dateMovie"
+            android:id="@+id/date_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -51,7 +51,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/descMovie"
+        android:id="@+id/desc_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
