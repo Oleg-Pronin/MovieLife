@@ -17,4 +17,7 @@ interface MoviesRepo {
 
     // TODO: API https://developers.themoviedb.org/3/movies/get-upcoming
     fun getUpcomingMovies(): List<Movie>
+
+    // TODO: API https://developers.themoviedb.org/3/movies/get-movie-details
+    fun getDetailMovie(id: Int): Movie
 }

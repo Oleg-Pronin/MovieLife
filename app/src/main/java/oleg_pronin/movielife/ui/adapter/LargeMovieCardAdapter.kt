@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.LargeCardItemMovieBinding
@@ -28,10 +28,10 @@ class LargeMovieCardAdapter : RecyclerView.Adapter<LargeMovieCardAdapter.ViewHol
             dateMovie.text = movie.date.toString()
 
             cardView.setOnClickListener {
-//                Navigation.createNavigateOnClickListener(
-//                    R.id.action_soon_fragment_to_detailFragment,
-//                    bundleOf("id" to movie.id)
-//                )
+                it.findNavController().navigate(
+                    R.id.action_soon_fragment_to_detailFragment,
+                    bundleOf("id" to movie.id)
+                )
             }
         }
     }

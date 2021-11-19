@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.SmallCardItemMovieBinding
 import oleg_pronin.movielife.domain.entity.Movie
 
@@ -24,7 +27,10 @@ class SmallMovieCardAdapter : RecyclerView.Adapter<SmallMovieCardAdapter.ViewHol
             nameMovie.text = movie.name
 
             cardView.setOnClickListener {
-                Log.d("@@@@", "Click {${movie.id}}")
+                it.findNavController().navigate(
+                    R.id.action_movie_fragment_to_detailFragment,
+                    bundleOf("id" to movie.id)
+                )
             }
         }
     }
