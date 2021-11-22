@@ -23,23 +23,4 @@
             android:text="Profile"/>
     </LinearLayout>
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/progress_bar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="#23000000"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:visibility="visible">-->
-
-<!--        <ProgressBar-->
-<!--            style="?android:attr/progressBarStyleLarge"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center" />-->
-<!--    </FrameLayout>-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
