@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import oleg_pronin.movielife.databinding.DetailFragmentBinding
+import oleg_pronin.movielife.util.createSnackbarAndShow
 
 class DetailFragment : Fragment() {
     private var _binding: DetailFragmentBinding? = null
@@ -29,10 +30,12 @@ class DetailFragment : Fragment() {
         arguments?.getInt("id")?.let {
             // TODO: Временное id = it - 1
             viewModel.getDetailMovieById(it - 1).apply {
-                binding.nameMovie.text = this.name
-                binding.dateMovie.text = this.date.toString()
-                binding.descMovie.text = this.description
+                binding.nameMovie.text = name
+                binding.dateMovie.text = date
+                binding.descMovie.text = description
             }
+
+            view.createSnackbarAndShow(binding.nameMovie.text as String)
         }
     }
 }
