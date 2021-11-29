@@ -20,6 +20,9 @@
 
 Добавлены дополнительные extension-функции для Snackbar: View.createSnackbarAndShow - принимает текст, без вызова action, а View.createSnackbarResAndShow - принимает строковый ресурс в качестве текста
 
+4. 29.11.2021 [feature/lesson-5. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/c2076bb0d29fdaeb9b38cc61cf6d0a33cedf2c37)
+
+Добавление класса AppState для отслеживания состояния данных. Реализовано взаимодействие с progressBar из fragment.
 
 ## Исправленные ошибки
 `Описание устраненных замечаний с указанием даты и кратко причина бага`
