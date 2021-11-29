@@ -1,9 +1,9 @@
 package oleg_pronin.movielife.ui.pages.detail
 
-import oleg_pronin.movielife.domain.entity.Movie
+import oleg_pronin.movielife.AppState
 
 class DetailContract {
     interface ViewModal {
-        fun getDetailMovieById(id: Int): Movie
+        fun getDetailMovieById(id: Int): AppState
     }
 }

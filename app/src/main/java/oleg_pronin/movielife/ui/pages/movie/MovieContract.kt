@@ -1,11 +1,11 @@
 package oleg_pronin.movielife.ui.pages.movie
 
-import androidx.lifecycle.LiveData
-import oleg_pronin.movielife.domain.entity.Movie
+import androidx.lifecycle.MutableLiveData
+import oleg_pronin.movielife.AppState
 
 class MovieContract {
     interface ViewModel {
-        val mainMovieList: LiveData<List<Movie>>
+        val mainMovieList: MutableLiveData<AppState>
 
         fun getMainMovieList()
     }

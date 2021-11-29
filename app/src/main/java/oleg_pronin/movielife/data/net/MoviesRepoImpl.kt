@@ -3,7 +3,7 @@ package oleg_pronin.movielife.data.net
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import oleg_pronin.movielife.domain.entity.Movie
-import oleg_pronin.movielife.domain.entity.apiResponse.ResponsePage
+import oleg_pronin.movielife.domain.entity.dto.PageDTO
 import oleg_pronin.movielife.domain.repository.MoviesRepo
 
 class MoviesRepoImpl : MoviesRepo {
@@ -418,9 +418,9 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
-        val objectClass: ResponsePage<Movie> = builder.create().fromJson(
+        val objectClass: PageDTO<Movie> = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ResponsePage<Movie>>() {}.type
+            object : TypeToken<PageDTO<Movie>>() {}.type
         )
 
         return objectClass.results
@@ -837,9 +837,9 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
-        val objectClass: ResponsePage<Movie> = builder.create().fromJson(
+        val objectClass: PageDTO<Movie> = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ResponsePage<Movie>>() {}.type
+            object : TypeToken<PageDTO<Movie>>() {}.type
         )
 
         return objectClass.results
@@ -1256,9 +1256,9 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
-        val objectClass: ResponsePage<Movie> = builder.create().fromJson(
+        val objectClass: PageDTO<Movie> = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ResponsePage<Movie>>() {}.type
+            object : TypeToken<PageDTO<Movie>>() {}.type
         )
 
         return objectClass.results
@@ -1675,9 +1675,9 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
-        val objectClass: ResponsePage<Movie> = builder.create().fromJson(
+        val objectClass: PageDTO<Movie> = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ResponsePage<Movie>>() {}.type
+            object : TypeToken<PageDTO<Movie>>() {}.type
         )
 
         return objectClass.results
@@ -2094,9 +2094,9 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
-        val objectClass: ResponsePage<Movie> = builder.create().fromJson(
+        val objectClass: PageDTO<Movie> = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ResponsePage<Movie>>() {}.type
+            object : TypeToken<PageDTO<Movie>>() {}.type
         )
 
         return objectClass.results
@@ -2168,6 +2168,8 @@ class MoviesRepoImpl : MoviesRepo {
         }"""
 
         val builder = GsonBuilder()
+
+        Thread.sleep(2000)
 
         return builder.create().fromJson(
             jsonString,
