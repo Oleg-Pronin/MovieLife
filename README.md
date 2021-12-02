@@ -16,7 +16,7 @@
 
 Добавлены сущности для ответов api, переписаны методы в MoviesRepoImpl в которые добавлены примеры ответов в формате json и их десериализация в объекты с помощью библиотеки Gson
 
-3. 26.11.2021 [feature/lesson-4. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/dd8017b20189f7e94586c178183c016c6fbfc82b)
+3. 26.11.2021 [feature/lesson-4. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/dd8017b20189f7e94586c178183c016c6fbfc82b)
 
 Добавлены дополнительные extension-функции для Snackbar: View.createSnackbarAndShow - принимает текст, без вызова action, а View.createSnackbarResAndShow - принимает строковый ресурс в качестве текста
 
