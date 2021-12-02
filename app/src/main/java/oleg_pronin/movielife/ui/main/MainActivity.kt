@@ -13,7 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), MainContract.ProgressBar {
+class MainActivity : AppCompatActivity(), MainContract.ProgressBar, MainContract.NavController {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -48,5 +48,9 @@ class MainActivity : AppCompatActivity(), MainContract.ProgressBar {
     override fun showOrHide(show: Boolean) {
         binding.progressBar.isVisible = show
         binding.navHostFragment.isVisible = !show
+    }
+
+    override fun setTitle(title: String) {
+        supportActionBar?.title = title
     }
 }

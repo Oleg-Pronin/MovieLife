@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import oleg_pronin.movielife.AppState
 import oleg_pronin.movielife.databinding.DetailFragmentBinding
 import oleg_pronin.movielife.domain.entity.Movie
-import oleg_pronin.movielife.ui.adapter.SmallMovieCardAdapter
 import oleg_pronin.movielife.ui.main.MainContract
 import oleg_pronin.movielife.util.createSnackbarAndShow
 
@@ -19,6 +18,7 @@ class DetailFragment : Fragment() {
 
     private val viewModel: DetailContract.ViewModal by viewModels<DetailViewModel>()
     private var progressBar: MainContract.ProgressBar? = null
+    private var navController: MainContract.NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +32,18 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        progressBar = (activity as MainContract.ProgressBar)
+        progressBar = activity as MainContract.ProgressBar
+        navController = activity as MainContract.NavController
+
+        initViewModel(viewModel)
 
         arguments?.getInt("id")?.let {
-            viewModel.getDetailMovieById(it - 1).apply { renderData(this) }
+            viewModel.getDetailMovieById(it)
         }
+    }
+
+    private fun initViewModel(viewModel: DetailContract.ViewModal) {
+        viewModel.detailMovie.observe(this) { renderData(it) }
     }
 
     private fun renderData(appState: AppState) {
@@ -49,6 +56,7 @@ class DetailFragment : Fragment() {
                 binding.descMovie.text = movie.description
 
                 progressBar?.showOrHide(false)
+                navController?.setTitle(movie.name)
             }
             is AppState.Loading -> {
                 progressBar?.showOrHide(true)

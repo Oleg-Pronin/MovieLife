@@ -34,6 +34,6 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="oleg_pronin.movielife.ui.pages.detail.DetailFragment"
-        android:label="detail_fragment"
+        android:label=""
         tools:layout="@layout/detail_fragment" />
 </navigation>

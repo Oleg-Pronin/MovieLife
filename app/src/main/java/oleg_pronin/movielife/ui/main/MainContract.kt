@@ -4,4 +4,8 @@ class MainContract {
     interface ProgressBar {
         fun showOrHide(show: Boolean)
     }
+
+    interface NavController {
+        fun setTitle(title: String)
+    }
 }
