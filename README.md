@@ -8,7 +8,7 @@
 ## Функциональность
 `Добавляется по мере реализации с указанием даты реализации и рабочей ветки`
 
-1. 22.11.2021 [feature/lesson-2](https://github.com/Oleg-Pronin/MovieLife/pull/1)
+1. 22.11.2021 [feature/lesson-2](https://github.com/Oleg-Pronin/MovieLife/pull/1) `Принята`
 
 Создан каркас приложения. В виде шаблона проектирования архитектуры приложения, выбрано MVVM. Приложение, в текущей версии, состоит из экранов: лента фильмов, лента будущих премьер, детальная страница для фильма и (пока в виде заглушки) личный кабинет. Для навигации приложения используется Navigation Architecture Component.
 
@@ -23,6 +23,10 @@
 4. 29.11.2021 [feature/lesson-5. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/c2076bb0d29fdaeb9b38cc61cf6d0a33cedf2c37)
 
 Добавление класса AppState для отслеживания состояния данных. Реализовано взаимодействие с progressBar из fragment.
+
+5. 03.12.2021 [feature/lesson-5. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/75f35a4733ca12055b6feae59fcd9a6689910333)
+
+Реализовано получайте данные с сервера The Movie DataBase с помощью HttpsURLConnection. Получение ключа для API осуществляется с помощью отдельного файла и подключения его с помощью build.gradle
 
 ## Исправленные ошибки
 `Описание устраненных замечаний с указанием даты и кратко причина бага`
