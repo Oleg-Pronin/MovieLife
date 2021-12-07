@@ -25,7 +25,7 @@ class LargeMovieCardAdapter : RecyclerView.Adapter<LargeMovieCardAdapter.ViewHol
         fun bind(movie: Movie) = with(binding) {
             nameMovie.text = movie.name
             descMovie.text = movie.description
-            dateMovie.text = movie.date.toString()
+            dateMovie.text = movie.date
 
             cardView.setOnClickListener {
                 it.findNavController().navigate(

@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.FragmentSoonBinding
 import oleg_pronin.movielife.ui.adapter.LargeMovieCardAdapter
+import oleg_pronin.movielife.util.createSnackbarResAndShow
 
 class SoonFragment : Fragment() {
     private var _binding: FragmentSoonBinding? = null
@@ -32,6 +34,8 @@ class SoonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.createSnackbarResAndShow(R.string.soon)
 
         initRecyclerView()
         initViewModel(viewModel)
