@@ -8,23 +8,23 @@
 ## Функциональность
 `Добавляется по мере реализации с указанием даты реализации и рабочей ветки`
 
-1. 22.11.2021 [feature/lesson-2](https://github.com/Oleg-Pronin/MovieLife/pull/1) `Принята`
+1. 22.11.2021 [feature/lesson-2](https://github.com/Oleg-Pronin/MovieLife/pull/1) `Проверено`
 
 Создан каркас приложения. В виде шаблона проектирования архитектуры приложения, выбрано MVVM. Приложение, в текущей версии, состоит из экранов: лента фильмов, лента будущих премьер, детальная страница для фильма и (пока в виде заглушки) личный кабинет. Для навигации приложения используется Navigation Architecture Component.
 
-2. 26.11.2021 [feature/lesson-4. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/594508b7963da47e55babc69d8b53b00a8e5d0f8)
+2. 26.11.2021 [feature/lesson-4. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/594508b7963da47e55babc69d8b53b00a8e5d0f8) `Проверено`
 
 Добавлены сущности для ответов api, переписаны методы в MoviesRepoImpl в которые добавлены примеры ответов в формате json и их десериализация в объекты с помощью библиотеки Gson
 
-3. 26.11.2021 [feature/lesson-4. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/dd8017b20189f7e94586c178183c016c6fbfc82b)
+3. 26.11.2021 [feature/lesson-4. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/3/commits/dd8017b20189f7e94586c178183c016c6fbfc82b) `Проверено`
 
 Добавлены дополнительные extension-функции для Snackbar: View.createSnackbarAndShow - принимает текст, без вызова action, а View.createSnackbarResAndShow - принимает строковый ресурс в качестве текста
 
-4. 29.11.2021 [feature/lesson-5. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/c2076bb0d29fdaeb9b38cc61cf6d0a33cedf2c37)
+4. 29.11.2021 [feature/lesson-5. Commit#1](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/c2076bb0d29fdaeb9b38cc61cf6d0a33cedf2c37) `Проверено`
 
 Добавление класса AppState для отслеживания состояния данных. Реализовано взаимодействие с progressBar из fragment.
 
-5. 03.12.2021 [feature/lesson-5. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/75f35a4733ca12055b6feae59fcd9a6689910333)
+5. 03.12.2021 [feature/lesson-5. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/75f35a4733ca12055b6feae59fcd9a6689910333) `Проверено`
 
 Реализовано получайте данные с сервера The Movie DataBase с помощью HttpsURLConnection. Получение ключа для API осуществляется с помощью отдельного файла и подключения его с помощью build.gradle
 
