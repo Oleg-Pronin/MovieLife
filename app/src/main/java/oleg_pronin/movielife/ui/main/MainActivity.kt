@@ -1,8 +1,9 @@
 package oleg_pronin.movielife.ui.main
 
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.ActivityMainBinding
+import oleg_pronin.movielife.util.BroadcastReceiver
 
 class MainActivity : AppCompatActivity(), MainContract.ProgressBar, MainContract.NavController {
     private lateinit var binding: ActivityMainBinding
@@ -25,6 +27,14 @@ class MainActivity : AppCompatActivity(), MainContract.ProgressBar, MainContract
         setContentView(binding.root)
 
         initNavigation()
+        initReceiver()
+    }
+
+    private fun initReceiver() {
+        registerReceiver(
+            BroadcastReceiver(),
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )
     }
 
     private fun getNavController(): NavController {
