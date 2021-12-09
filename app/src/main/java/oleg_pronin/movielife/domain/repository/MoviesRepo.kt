@@ -4,7 +4,7 @@ import oleg_pronin.movielife.domain.entity.Movie
 
 interface MoviesRepo {
     // TODO: API https://developers.themoviedb.org/3/movies/get-latest-movie
-    fun getLatestMovies(): List<Movie>
+    fun getLatestMovies(): Movie
 
     // TODO: API https://developers.themoviedb.org/3/movies/get-now-playing
     fun getNowPlayingMovies(): List<Movie>

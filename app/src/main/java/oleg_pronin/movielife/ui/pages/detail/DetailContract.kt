@@ -1,9 +1,12 @@
 package oleg_pronin.movielife.ui.pages.detail
 
-import oleg_pronin.movielife.domain.entity.Movie
+import androidx.lifecycle.LiveData
+import oleg_pronin.movielife.AppState
 
 class DetailContract {
     interface ViewModal {
-        fun getDetailMovieById(id: Int): Movie
+        val detailMovie: LiveData<AppState>
+
+        fun getDetailMovieById(id: Int)
     }
 }
