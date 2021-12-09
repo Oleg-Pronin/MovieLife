@@ -26,7 +26,11 @@
 
 5. 03.12.2021 [feature/lesson-5. Commit#2](https://github.com/Oleg-Pronin/MovieLife/pull/4/commits/75f35a4733ca12055b6feae59fcd9a6689910333) `Проверено`
 
-Реализовано получайте данные с сервера The Movie DataBase с помощью HttpsURLConnection. Получение ключа для API осуществляется с помощью отдельного файла и подключения его с помощью build.gradle
+Реализовано получайте данные с сервера The Movie DataBase с помощью HttpsURLConnection. Получение ключа для API осуществляется с помощью отдельного файла и подключения его с помощью build.gradle.
+
+6. 09.12.2021 [feature/lesson-6](https://github.com/Oleg-Pronin/MovieLife/pull/5)
+
+Реализована подписка на событие изменения связи (CONNECTIVITY_ACTION) и уведомляйте об этом пользователя при изменении подключения к сети.
 
 ## Исправленные ошибки
 `Описание устраненных замечаний с указанием даты и кратко причина бага`
