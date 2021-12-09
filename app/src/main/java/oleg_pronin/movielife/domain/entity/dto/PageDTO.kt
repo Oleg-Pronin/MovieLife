@@ -1,8 +1,8 @@
-package oleg_pronin.movielife.domain.entity.apiResponse
+package oleg_pronin.movielife.domain.entity.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponsePage<T>(
+data class PageDTO<T>(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
