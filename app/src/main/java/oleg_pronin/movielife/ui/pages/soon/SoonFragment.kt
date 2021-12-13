@@ -8,19 +8,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import oleg_pronin.movielife.R
+import oleg_pronin.movielife.AppState
 import oleg_pronin.movielife.databinding.FragmentSoonBinding
+import oleg_pronin.movielife.domain.entity.Movie
 import oleg_pronin.movielife.ui.adapter.LargeMovieCardAdapter
-import oleg_pronin.movielife.util.createSnackbarResAndShow
+import oleg_pronin.movielife.ui.main.MainContract
+import oleg_pronin.movielife.util.createSnackbarAndShow
 
 class SoonFragment : Fragment() {
     private var _binding: FragmentSoonBinding? = null
     private val binding get() = _binding!!
 
-    private var adapter: LargeMovieCardAdapter? = null
+    private var adapter: LargeMovieCardAdapter = LargeMovieCardAdapter()
     private val viewModel: SoonContract.ViewModel by viewModels<SoonViewModel>()
 
     private lateinit var recyclerView: RecyclerView
+    private var progressBar: MainContract.ProgressBar? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,12 +38,12 @@ class SoonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.createSnackbarResAndShow(R.string.soon)
+        progressBar = (activity as MainContract.ProgressBar)
 
         initRecyclerView()
         initViewModel(viewModel)
 
-        viewModel.getSoonMovieList()
+        viewModel.setSoonMovieList()
     }
 
     private fun initRecyclerView() {
@@ -49,12 +52,24 @@ class SoonFragment : Fragment() {
     }
 
     private fun initViewModel(viewModel: SoonContract.ViewModel) {
-        viewModel.soonMovieList.observe(this) {
-            adapter = LargeMovieCardAdapter().apply {
-                setData(it)
-            }
+        viewModel.soonMovieList.observe(this) { renderData(it) }
+    }
 
-            recyclerView.adapter = adapter
+    private fun renderData(appState: AppState) {
+        when (appState) {
+            is AppState.Success -> {
+                adapter.setData(appState.data as List<Movie>)
+                recyclerView.adapter = adapter
+
+                progressBar?.showOrHide(false)
+            }
+            is AppState.Loading -> {
+                progressBar?.showOrHide(true)
+            }
+            is AppState.Error -> {
+                progressBar?.showOrHide(false)
+                appState.error.message?.let { view?.createSnackbarAndShow(it) }
+            }
         }
     }
 

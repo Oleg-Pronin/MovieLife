@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.LargeCardItemMovieBinding
 import oleg_pronin.movielife.domain.entity.Movie
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class LargeMovieCardAdapter : RecyclerView.Adapter<LargeMovieCardAdapter.ViewHolder>() {
     private var movieData: List<Movie> = listOf()
+    private var dateFormat = DateTimeFormatter.ofPattern("d MMMM yyyy")
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(data: List<Movie>) {
@@ -25,7 +28,7 @@ class LargeMovieCardAdapter : RecyclerView.Adapter<LargeMovieCardAdapter.ViewHol
         fun bind(movie: Movie) = with(binding) {
             nameMovie.text = movie.name
             descMovie.text = movie.description
-            dateMovie.text = movie.date
+            dateMovie.text = LocalDate.parse(movie.date).format(dateFormat)
 
             cardView.setOnClickListener {
                 it.findNavController().navigate(

@@ -10,7 +10,7 @@ fun View.createSnackbarAndShow(
     Snackbar.make(this, text, length).show()
 }
 
-fun View.createSnackbarResAndShow(
+fun View.createSnackbarAndShow(
     resourcesId: Int,
     length: Int = Snackbar.LENGTH_SHORT
 ) {

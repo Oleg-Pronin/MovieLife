@@ -2,6 +2,8 @@ package oleg_pronin.movielife.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,7 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainContract.ProgressBar, MainContract.NavController {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -41,5 +43,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return getNavController().navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun showOrHide(show: Boolean) {
+        binding.progressBar.isVisible = show
+        binding.navHostFragment.isVisible = !show
+    }
+
+    override fun setTitle(title: String) {
+        supportActionBar?.title = title
     }
 }
