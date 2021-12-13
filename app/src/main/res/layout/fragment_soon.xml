@@ -19,11 +19,8 @@
             android:id="@+id/recycler_view_soon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/mt_rv_dp"
+            android:layout_marginBottom="@dimen/mb_rv_dp"
             tools:listitem="@layout/large_card_item_movie" />
     </LinearLayout>
 

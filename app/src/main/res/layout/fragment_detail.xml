@@ -17,8 +17,8 @@
             android:id="@+id/cardView"
             android:layout_width="140dp"
             android:layout_height="220dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="16dp">
+            android:layout_margin="@dimen/m_cv_dp"
+            app:cardCornerRadius="@dimen/r_cv">
 
             <ImageView
                 android:id="@+id/image_movie"
@@ -26,14 +26,14 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/luka" />
+                android:src="@drawable/bg_luka" />
 
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/m_dp"
             android:gravity="top"
             android:orientation="vertical">
 
@@ -42,14 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#212121"
-                tools:text="Название" />
+                android:textColor="@color/mine_shaft"
+                tools:text="@string/example_name" />
 
             <TextView
                 android:id="@+id/date_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="11 авг 2021" />
+                tools:text="@string/example_date" />
         </LinearLayout>
 
     </LinearLayout>
@@ -58,12 +58,12 @@
         android:id="@+id/desc_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textColor="#212121"
-        android:textSize="16sp"
-        tools:text="Описание фильма, описание фильма, описание фильма, описание фильма, описание фильма, описание фильма, описание фильма, описание фильма, описание фильма..." />
+        android:layout_marginStart="@dimen/ms_dp"
+        android:layout_marginTop="@dimen/mt_dp"
+        android:layout_marginEnd="@dimen/me_dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+        android:textColor="@color/tundora"
+        tools:text="@string/example_description" />
 
 </LinearLayout>
 

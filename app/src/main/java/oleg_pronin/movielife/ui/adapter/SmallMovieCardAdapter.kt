@@ -1,7 +1,6 @@
 package oleg_pronin.movielife.ui.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -10,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.SmallCardItemMovieBinding
 import oleg_pronin.movielife.domain.entity.Movie
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class SmallMovieCardAdapter : RecyclerView.Adapter<SmallMovieCardAdapter.ViewHolder>() {
     private var movieData: List<Movie> = listOf()
+    private var dateFormat = DateTimeFormatter.ofPattern("d MMMM yyyy")
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(data: List<Movie>) {
@@ -25,6 +27,7 @@ class SmallMovieCardAdapter : RecyclerView.Adapter<SmallMovieCardAdapter.ViewHol
 
         fun bind(movie: Movie) = with(binding) {
             nameMovie.text = movie.name
+            dateMovie.text = LocalDate.parse(movie.date).format(dateFormat)
 
             cardView.setOnClickListener {
                 it.findNavController().navigate(

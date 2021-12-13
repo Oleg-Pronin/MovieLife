@@ -3,37 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/movie_fragment">
+    app:startDestination="@id/fragment_movie">
 
     <fragment
-        android:id="@+id/movie_fragment"
+        android:id="@+id/fragment_movie"
         android:name="oleg_pronin.movielife.ui.pages.movie.MovieFragment"
         android:label="@string/movie"
         tools:layout="@layout/fragment_movie" >
         <action
             android:id="@+id/action_movie_fragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/fragment_detail" />
     </fragment>
 
     <fragment
-        android:id="@+id/soon_fragment"
+        android:id="@+id/fragment_soon"
         android:name="oleg_pronin.movielife.ui.pages.soon.SoonFragment"
         android:label="@string/soon"
         tools:layout="@layout/fragment_soon" >
         <action
             android:id="@+id/action_soon_fragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/fragment_detail" />
     </fragment>
 
     <fragment
-        android:id="@+id/profile_fragment"
+        android:id="@+id/fragment_profile"
         android:name="oleg_pronin.movielife.ui.pages.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/detailFragment"
+        android:id="@+id/fragment_detail"
         android:name="oleg_pronin.movielife.ui.pages.detail.DetailFragment"
         android:label=""
-        tools:layout="@layout/detail_fragment" />
+        tools:layout="@layout/fragment_detail" />
 </navigation>

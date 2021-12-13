@@ -3,7 +3,7 @@ package oleg_pronin.movielife.data.net
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import oleg_pronin.movielife.domain.entity.ImageConfigure
-import oleg_pronin.movielife.domain.entity.dto.ConfigureDTO
+import oleg_pronin.movielife.domain.entity.dto.ConfigureDto
 import oleg_pronin.movielife.domain.repository.ConfRepo
 
 class ConfRepoImpl : ConfRepo {
@@ -108,9 +108,9 @@ class ConfRepoImpl : ConfRepo {
             }"""
 
         val builder = GsonBuilder()
-        val objectClass: ConfigureDTO = builder.create().fromJson(
+        val objectClass: ConfigureDto = builder.create().fromJson(
             jsonString,
-            object : TypeToken<ConfigureDTO>() {}.type
+            object : TypeToken<ConfigureDto>() {}.type
         )
 
         return objectClass.images

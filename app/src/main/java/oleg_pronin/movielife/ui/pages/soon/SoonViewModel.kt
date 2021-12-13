@@ -10,7 +10,7 @@ class SoonViewModel : ViewModel(), SoonContract.ViewModel {
     override var soonMovieList = MutableLiveData<AppState>()
     private val movieRepo: MoviesRepo by lazy { MoviesRepoImpl() }
 
-    override fun getSoonMovieList() {
+    override fun setSoonMovieList() {
         try {
             soonMovieList.postValue(AppState.Loading)
 

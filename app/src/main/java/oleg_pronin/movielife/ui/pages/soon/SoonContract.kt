@@ -7,6 +7,6 @@ class SoonContract {
     interface ViewModel{
         val soonMovieList: LiveData<AppState>
 
-        fun getSoonMovieList()
+        fun setSoonMovieList()
     }
 }

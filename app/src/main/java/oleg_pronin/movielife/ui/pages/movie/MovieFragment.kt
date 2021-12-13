@@ -19,7 +19,7 @@ class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
 
-    private var adapter: SmallMovieCardAdapter? = null
+    private var adapter: SmallMovieCardAdapter = SmallMovieCardAdapter()
     private val viewModel: MovieContract.ViewModel by viewModels<MovieViewModal>()
 
     private lateinit var recyclerView: RecyclerView
@@ -43,7 +43,7 @@ class MovieFragment : Fragment() {
         initRecyclerView()
         initViewModel(viewModel)
 
-        viewModel.getMainMovieList()
+        viewModel.setMainMovieList()
     }
 
     private fun initRecyclerView() {
@@ -62,10 +62,7 @@ class MovieFragment : Fragment() {
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                adapter = SmallMovieCardAdapter().apply {
-                    setData(appState.data as List<Movie>)
-                }
-
+                adapter.setData(appState.data as List<Movie>)
                 recyclerView.adapter = adapter
 
                 progressBar?.showOrHide(false)

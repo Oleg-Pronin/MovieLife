@@ -7,6 +7,6 @@ class DetailContract {
     interface ViewModal {
         val detailMovie: LiveData<AppState>
 
-        fun getDetailMovieById(id: Int)
+        fun setDetailMovieById(id: Int)
     }
 }

@@ -9,20 +9,17 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import oleg_pronin.movielife.AppState
-import oleg_pronin.movielife.R
 import oleg_pronin.movielife.databinding.FragmentSoonBinding
 import oleg_pronin.movielife.domain.entity.Movie
 import oleg_pronin.movielife.ui.adapter.LargeMovieCardAdapter
-import oleg_pronin.movielife.ui.adapter.SmallMovieCardAdapter
 import oleg_pronin.movielife.ui.main.MainContract
 import oleg_pronin.movielife.util.createSnackbarAndShow
-import oleg_pronin.movielife.util.createSnackbarResAndShow
 
 class SoonFragment : Fragment() {
     private var _binding: FragmentSoonBinding? = null
     private val binding get() = _binding!!
 
-    private var adapter: LargeMovieCardAdapter? = null
+    private var adapter: LargeMovieCardAdapter = LargeMovieCardAdapter()
     private val viewModel: SoonContract.ViewModel by viewModels<SoonViewModel>()
 
     private lateinit var recyclerView: RecyclerView
@@ -46,7 +43,7 @@ class SoonFragment : Fragment() {
         initRecyclerView()
         initViewModel(viewModel)
 
-        viewModel.getSoonMovieList()
+        viewModel.setSoonMovieList()
     }
 
     private fun initRecyclerView() {
@@ -61,10 +58,7 @@ class SoonFragment : Fragment() {
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                adapter = LargeMovieCardAdapter().apply {
-                    setData(appState.data as List<Movie>)
-                }
-
+                adapter.setData(appState.data as List<Movie>)
                 recyclerView.adapter = adapter
 
                 progressBar?.showOrHide(false)

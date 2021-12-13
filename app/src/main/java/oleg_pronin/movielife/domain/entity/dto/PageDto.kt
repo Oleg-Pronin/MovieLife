@@ -2,7 +2,7 @@ package oleg_pronin.movielife.domain.entity.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class PageDTO<T>(
+data class PageDto<T>(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")

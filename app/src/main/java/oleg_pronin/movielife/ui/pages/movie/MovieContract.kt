@@ -7,6 +7,6 @@ class MovieContract {
     interface ViewModel {
         val mainMovieList: MutableLiveData<AppState>
 
-        fun getMainMovieList()
+        fun setMainMovieList()
     }
 }

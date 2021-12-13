@@ -1,4 +1,4 @@
-package oleg_pronin.movielife.data.net
+package oleg_pronin.movielife.domain.manager
 
 import oleg_pronin.movielife.BuildConfig
 import java.io.BufferedReader
@@ -7,7 +7,7 @@ import java.net.URL
 import java.util.stream.Collectors
 import javax.net.ssl.HttpsURLConnection
 
-open class Api {
+interface WebManager {
     enum class RequestMethod(val method: String) {
         GET("GET"),
         POST("POST")
@@ -23,17 +23,19 @@ open class Api {
         EN("en"),
     }
 
+    fun getBaseURL(): String
+
     @Throws(Throwable::class)
-    fun makeRequestAPI(
-        requestMethod: RequestMethod = RequestMethod.GET,
+    fun getResultRequest(
         path: String,
+        requestMethod: RequestMethod = RequestMethod.GET,
         lang: LANGUAGE = LANGUAGE.RU,
         region: REGION = REGION.RU,
     ): String {
         var error: Throwable
 
         try {
-            val uri = URL("https://api.themoviedb.org/3" +
+            val uri = URL(getBaseURL() +
                     path +
                     "?api_key=${BuildConfig.API_KEY}" +
                     "&language=${lang.value}" +
@@ -61,6 +63,6 @@ open class Api {
     }
 
     private fun getLines(reader: BufferedReader): String {
-       return reader.lines().collect(Collectors.joining("\n"))
+        return reader.lines().collect(Collectors.joining("\n"))
     }
 }

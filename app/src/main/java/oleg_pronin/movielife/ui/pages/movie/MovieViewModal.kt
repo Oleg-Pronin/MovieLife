@@ -10,7 +10,7 @@ class MovieViewModal : ViewModel(), MovieContract.ViewModel {
     override val mainMovieList = MutableLiveData<AppState>()
     private val movieRepo: MoviesRepo by lazy { MoviesRepoImpl() }
 
-    override fun getMainMovieList() {
+    override fun setMainMovieList() {
         try {
             mainMovieList.postValue(AppState.Loading)
 
