@@ -15,11 +15,13 @@ class MovieViewModal : ViewModel(), MovieContract.ViewModel {
             mainMovieList.postValue(AppState.Loading)
 
             Thread {
-                try {
-                    mainMovieList.postValue(AppState.Success(movieRepo.getNowPlayingMovies()))
-                } catch (error: Throwable) {
-                    mainMovieList.postValue(AppState.Error(error))
-                }
+                mainMovieList.postValue(
+                    try {
+                        AppState.Success(movieRepo.getNowPlayingMovies())
+                    } catch (error: Throwable) {
+                        AppState.Error(error)
+                    }
+                )
             }.start()
         } catch (error: Throwable) {
             mainMovieList.postValue(AppState.Error(error))

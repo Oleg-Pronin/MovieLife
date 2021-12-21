@@ -1,6 +1,7 @@
 package oleg_pronin.movielife.domain.manager
 
 import oleg_pronin.movielife.BuildConfig
+import oleg_pronin.movielife.domain.entity.ResultRequestApi
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
@@ -31,8 +32,8 @@ interface WebManager {
         requestMethod: RequestMethod = RequestMethod.GET,
         lang: LANGUAGE = LANGUAGE.RU,
         region: REGION = REGION.RU,
-    ): String {
-        var error: Throwable
+    ): ResultRequestApi {
+        var error: Throwable?
 
         try {
             val uri = URL(getBaseURL() +
@@ -49,7 +50,9 @@ interface WebManager {
                 urlConnection.requestMethod = requestMethod.method
                 urlConnection.readTimeout = 10000
 
-                return getLines(BufferedReader(InputStreamReader(urlConnection.inputStream)))
+                return ResultRequestApi(
+                    getLines(BufferedReader(InputStreamReader(urlConnection.inputStream)))
+                )
             } catch (e: Exception) {
                 error = Throwable("Ошибка выполнения запроса")
             } finally {
@@ -59,7 +62,7 @@ interface WebManager {
             error = e
         }
 
-        throw error
+        return ResultRequestApi(error = error)
     }
 
     private fun getLines(reader: BufferedReader): String {

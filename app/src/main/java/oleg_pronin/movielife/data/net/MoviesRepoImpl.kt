@@ -9,19 +9,27 @@ import oleg_pronin.movielife.domain.repository.MoviesRepo
 
 class MoviesRepoImpl : MoviesRepo {
     override fun getLatestMovies(): Movie {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/latest")
+        val result = TheMovieDbApi.getResultRequest("/movie/latest")
+
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
 
         return GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             Movie::class.java
         )
     }
 
     override fun getNowPlayingMovies(): List<Movie> {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/now_playing")
+        val result = TheMovieDbApi.getResultRequest("/movie/now_playing")
 
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
+        
         val objectClass: PageDto<Movie> = GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             object : TypeToken<PageDto<Movie>>() {}.type
         )
 
@@ -29,10 +37,14 @@ class MoviesRepoImpl : MoviesRepo {
     }
 
     override fun getPopularMovies(): List<Movie> {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/popular")
+        val result = TheMovieDbApi.getResultRequest("/movie/popular")
+
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
 
         val objectClass: PageDto<Movie> = GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             object : TypeToken<PageDto<Movie>>() {}.type
         )
 
@@ -40,10 +52,14 @@ class MoviesRepoImpl : MoviesRepo {
     }
 
     override fun getTopRatedMovies(): List<Movie> {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/top_rated")
+        val result = TheMovieDbApi.getResultRequest("/movie/top_rated")
+
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
 
         val objectClass: PageDto<Movie> = GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             object : TypeToken<PageDto<Movie>>() {}.type
         )
 
@@ -51,10 +67,14 @@ class MoviesRepoImpl : MoviesRepo {
     }
 
     override fun getUpcomingMovies(): List<Movie> {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/upcoming")
+        val result = TheMovieDbApi.getResultRequest("/movie/upcoming")
+
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
 
         val objectClass: PageDto<Movie> = GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             object : TypeToken<PageDto<Movie>>() {}.type
         )
 
@@ -62,10 +82,14 @@ class MoviesRepoImpl : MoviesRepo {
     }
 
     override fun getDetailMovie(id: Int): Movie {
-        val jsonString = TheMovieDbApi.getResultRequest("/movie/${id}")
+        val result = TheMovieDbApi.getResultRequest("/movie/${id}")
+
+        if (result.error != null) {
+            throw Throwable(result.error)
+        }
 
         return GsonBuilder().create().fromJson(
-            jsonString,
+            result.body,
             Movie::class.java
         )
     }
