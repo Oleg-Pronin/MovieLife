@@ -31,4 +31,5 @@
 
     <!--  Text size  -->
     <dimen name="text_size_desc_detail">16sp</dimen>
+    <dimen name="card_radius">16dp</dimen>
 </resources>
