@@ -16,7 +16,7 @@
         android:layout_marginStart="@dimen/ms_dp"
         android:layout_marginTop="@dimen/mt_dp"
         android:layout_marginEnd="@dimen/me_dp"
-        app:cardCornerRadius="16dp">
+        app:cardCornerRadius="@dimen/card_radius">
 
         <ImageView
             android:id="@+id/image_movie"
@@ -29,8 +29,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#D2ECEBEB"
-            app:cardCornerRadius="0dp">
+            android:backgroundTint="@color/gallery"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:cardCornerRadius="@dimen/card_radius">
 
             <TextView
                 android:id="@+id/date_movie"
@@ -42,7 +44,6 @@
                 tools:text="@string/example_date" />
 
         </androidx.cardview.widget.CardView>
-
 
     </androidx.cardview.widget.CardView>
 
